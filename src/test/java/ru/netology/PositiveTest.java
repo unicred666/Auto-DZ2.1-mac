@@ -1,16 +1,17 @@
 package ru.netology;
 
+import org.junit.jupiter.api.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.AfterEach;
+//import org.junit.jupiter.api.BeforeAll;
+//import org.junit.jupiter.api.BeforeEach;
+//import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PositiveTest {
 
@@ -39,13 +40,13 @@ public class PositiveTest {
 
 
     @AfterEach
-    void tearsDown() {
+    public void tearsDown() {
         driver.quit();
         driver = null;
     }
 
     @Test
-    void test() {
+    public void test() {
         driver.get("http://localhost:9999/");
         driver.findElement(By.cssSelector("input[type='text']")).sendKeys("Иванов Иван");
         driver.findElement(By.cssSelector("input[type='tel']")).sendKeys("+79165454176");
